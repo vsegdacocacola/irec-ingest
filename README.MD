@@ -1,5 +1,17 @@
 # IREC triage image parser
 
+## About
+
+Unzip and process all evidence collected by free version of IREC fro binalyze.com.
+Processing includes:
+1. Convert all .evtx Windows Event Logs into csv format (FullEventLogView from NirSoft)
+2. Transform IREC produced MFT.csv by adding full path ( script located here .\bin\IrecMFT.ps1)
+3. Process registy hives with RegRipper
+4. Process registry hives and save as csv with RECmd from Eric Zimmerman 
+5. Store registry, logs, mft converted csv into SQLite DB
+
+Supported batch processing of zip compressed archives
+
 ## Instruction
 
 1. Run get-modules.ps1 to download required modules. All modules will be downloaded and unzipped into .\bin
