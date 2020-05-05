@@ -1,0 +1,2 @@
+Here unzipped images will appear: separate folder for each archive (e.g. \host_1, \host_2, etc.)
+You can put them manually, keeping IREC directory structure (e.g. \host_1\Content, \host_2\Registry, etc.)

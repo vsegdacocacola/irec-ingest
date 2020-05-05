@@ -1,0 +1,1 @@
+Put zip commpressed IREC triage images, separate archive for each image

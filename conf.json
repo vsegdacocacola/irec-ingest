@@ -1,0 +1,93 @@
+[
+  {
+    "regex": "\\$MFT\\.csv",
+    "exec": "IrecMFT.ps1",
+    "args": "-SourceFile {sourceFilePath} -DestinationFile {destinationFilepath} -BirthOnly $True",
+    "ext": "csv",
+    "disabled": "false"
+  },
+  {
+    "regex": "registry_user",
+    "exec": "RegRipper2.8-master\\rip.exe",
+    "args": " -f ntuser -r {sourceFilePath}",
+    "ext": "txt",
+    "disabled": "false"
+  },
+  {
+    "regex": "registry_machine_sam",
+    "exec": "RegRipper2.8-master\\rip.exe",
+    "args": " -f sam -r {sourceFilePath}",
+    "ext": "txt",
+    "disabled": "false"
+  },
+  {
+    "regex": "registry_machine_security",
+    "exec": "RegRipper2.8-master\\rip.exe",
+    "args": " -f security -r {sourceFilePath}",
+    "ext": "txt",
+    "disabled": "false"
+  },
+  {
+    "regex": "registry_machine_software",
+    "exec": "RegRipper2.8-master\\rip.exe",
+    "args": " -f software -r {sourceFilePath}",
+    "ext": "txt",
+    "disabled": "false"
+  },
+  {
+    "regex": "registry_machine_system",
+    "exec": "RegRipper2.8-master\\rip.exe",
+    "args": " -f system -r {sourceFilePath}",
+    "ext": "txt",
+    "disabled": "false"
+  },
+  {
+    "regex": "\\.evtx$",
+    "exec": "FullEventLogView.exe",
+    "args": "/TimeFilter 0 /DataSource 3 /LogFolder {sourceFolder} /LogFolderWildcard {sourceFilename} /scomma {destinationFilepath}",
+    "ext": "csv",
+    "disabled": "false"
+  },
+  {
+    "regex": "Amcache\\.hve",
+    "exec": "AmcacheParser.exe",
+    "args": "-f {sourceFilePath} --csv {destinationFolder}",
+    "ext": "csv",
+    "disabled": "false"
+  },
+  {
+    "regex": "registry_machine_software",
+    "exec": "RegistryExplorer\\RECmd.exe",
+    "args": "-f {sourceFilePath} --bn {modulesFolder}\\RegistryExplorer\\software.reb --nl --csv {destinationFolder}",
+    "ext": "csv",
+    "disabled": "false"
+  },
+  {
+    "regex": "registry_machine_system",
+    "exec": "RegistryExplorer\\RECmd.exe",
+    "args": "-f {sourceFilePath} --bn {modulesFolder}\\RegistryExplorer\\system.reb --nl --csv {destinationFolder}",
+    "ext": "csv",
+    "disabled": "false"
+  },
+  {
+    "regex": "registry_machine_security",
+    "exec": "RegistryExplorer\\RECmd.exe",
+    "args": "-f {sourceFilePath} --bn {modulesFolder}\\RegistryExplorer\\security.reb --nl --csv {destinationFolder}",
+    "ext": "csv",
+    "disabled": "false"
+  },
+  {
+    "regex": "registry_user",
+    "exec": "RegistryExplorer\\RECmd.exe",
+    "args": "-f {sourceFilePath} --bn {modulesFolder}\\RegistryExplorer\\ntuser.reb --nl --csv {destinationFolder}",
+    "ext": "csv",
+    "disabled": "false"
+  },
+  {
+    "regex": "Amcache\\.hve",
+    "exec": "RegistryExplorer\\RECmd.exe",
+    "args": "-f {sourceFilePath} --bn {modulesFolder}\\RegistryExplorer\\amcache.reb --nl --csv {destinationFolder}",
+    "ext": "csv",
+    "disabled": "false"
+  }
+]
